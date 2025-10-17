@@ -1,19 +1,24 @@
 extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
+include ../../mixins/product-layout.pug
+include ../../mixins/alert.pug
+
 
 block main
-  .container.my-3
-    .row
-      .col-12
-        +box-head("Danh Sach San Pham")
+  +alert-success(2000)
+  .section-products-featured.my-5
+    .container
+      .row
+        .col-12
+          +box-head("Sản phẩm nổi bật")
 
-    .row
-      .col-4.mb-3
-        .product-item
-          .item-image
-            img(src="https://cdn.daca.vn/media/anh/bg-intro.svg", alt="Iphone 9")
-          .inner-content
-            h3.inner-title iPhone 9
-            .inner-price-new 80$
-            .inner-price-old 100$
-            .inner-discount -20%
+      +product-grid(productsFeatured)
+
+   
+  .section-products-featured.my-5
+    .container
+      .row
+        .col-12
+          +box-head("Sản phẩm mới")
+
+      +product-grid(productsNew)    
